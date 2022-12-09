@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "fct",
+    'name': "Vocational Training Practices.",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Application for managing pupil´s practices in companies.""",
 
     'description': """
-        Long description of module's purpose
+        Allows:
+            -Creation and management of pupil activities.
+            -Follow up for managers.
+            -Report generation and printing for practices management,
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "DAM Tartanga",
+    'website': "http://www.tartanga.eus",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
