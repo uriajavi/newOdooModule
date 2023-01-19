@@ -1,0 +1,80 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="fct.task_list">
+      <field name="name">FCT Task list</field>
+      <field name="model">fct.task</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date"/>
+          <field name="name"/>
+          <field name="duration"/>
+        </tree>
+      </field>
+    </record>
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="fct.task_form">
+      <field name="name">FCT Task form</field>
+      <field name="model">fct.task</field>
+      <field name="arch" type="xml">
+        <form string="Task form">
+            <group colspan="4">
+            <group colspan="2" col="2">
+                <separator string="General data" colspan="2"/>
+                <field name="pupil"/>
+                <field name="date"/>
+                <field name="name"/>
+                <field name="duration"/>
+            </group>
+
+            <group colspan="2" col="2">
+                <separator string="Notes" colspan="2"/>
+                <field name="description"/>
+                <field name="remarks"/>
+            </group>
+            </group>
+        </form>
+      </field>
+    </record>
+    <!-- explicit search view definition -->
+    <record model="ir.ui.view" id="fct.task_search">
+      <field name="name">FCT Task search</field>
+      <field name="model">fct.task</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="date"/>
+          <field name="name"/>
+          <field name="duration"/>
+        </search>
+      </field>
+    </record>
+    <!-- Add activity field to existing view -->
+    <record model="ir.ui.view" id="user_activity_form_view">
+        <field name="name">user.activity</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Activities">
+                        <field name="activities"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" 
+            id="fct.activities_action_window">
+      <field name="name">FCT activities</field>
+      <field name="res_model">fct.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- actions -->
+    <menuitem name="Activities Management" 
+              id="fct.menu_1_list" 
+              parent="fct.menu_1"
+              action="fct.activities_action_window"/>
+  </data>
+</odoo>
